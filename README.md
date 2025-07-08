@@ -1,4 +1,4 @@
-# AI-Powered Problem Discovery Platform
+# Okapia: AI-Powered Problem Discovery Platform
 
 > 🌐 A full-stack web app where users post real-world problems, get AI-detected similar problems, and receive solution ideas. Built with Next.js, Node.js, PostgreSQL, OpenAI embeddings, and Tailwind CSS.
 
