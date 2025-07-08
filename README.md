@@ -21,11 +21,29 @@
 |---------------|--------------------------------------------|
 | Frontend      | Next.js 14, Tailwind CSS                   |
 | Backend       | Next.js API Routes, Node.js                |
-| Database      | PostgreSQL with Prisma ORM (pgvector for embeddings) |
+| Database      | PostgreSQL with Prisma ORM (pgvector)      |
 | AI            | OpenAI embeddings + GPT-4                  |
-| Auth          | NextAuth (email + OAuth)                  |
-| Bonus         | Wagmi + RainbowKit (optional Web3 login)  |
-| Caching       | Redis (future roadmap)                    |
+| Auth          | NextAuth (email + OAuth)                   |
+| Web3 Login    | Wagmi + RainbowKit (optional)              |
+| Caching       | Redis (future roadmap)                     |
+
+---
+
+## 🗺️ Project Architecture
+```
+├── pages/
+│   ├── index.tsx         # Home feed
+│   ├── submit.tsx        # Form to submit problem
+│   └── api/
+│       ├── problems.ts   # Create + fetch problems
+│       └── similarity.ts # Embedding + similarity logic
+├── prisma/
+│   ├── schema.prisma     # DB schema (includes vector type)
+│   └── seed.ts           # Seed data
+├── lib/
+│   └── openai.ts         # OpenAI client
+└── tailwind.config.js
+```
 
 ---
 
@@ -33,8 +51,8 @@
 
 1️⃣ **Clone repo & install dependencies**
 ```bash
-git clone https://github.com/your-username/ai-problem-discovery.git
-cd ai-problem-discovery
+git clone https://github.com/harked/okapia-app.git
+cd okapia-app
 npm install
 ```
 
@@ -45,7 +63,7 @@ cp .env.example .env
 
 Fill in:
 ```
-DATABASE_URL=postgresql://user:pass@localhost:5432/ai_problem_db
+DATABASE_URL=postgresql://user:pass@localhost:5432/okapia_db
 OPENAI_API_KEY=sk-...
 NEXTAUTH_SECRET=your-random-secret
 ```
